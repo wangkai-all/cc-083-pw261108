@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["orderNo", "amount", "status", "channel"],
+  "properties": {
+    "orderNo": { "type": "string", "x-aliases": ["orderId"] },
+    "amount": { "type": "number" },
+    "status": {
+      "type": "string",
+      "enum": ["CREATED", "PAID", "CANCELLED", "REFUNDED"]
+    },
+    "currency": { "type": "string", "default": "USD" },
+    "remark": { "type": "string" },
+    "channel": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sku", "qty"],
+        "properties": {
+          "sku": { "type": "string" },
+          "qty": { "type": "integer" },
+          "price": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

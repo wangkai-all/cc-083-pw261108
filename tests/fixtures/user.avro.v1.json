@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "UserEvent",
+  "namespace": "com.example",
+  "doc": "用户事件",
+  "fields": [
+    { "name": "id", "type": "long" },
+    { "name": "name", "type": "string" },
+    { "name": "tier", "type": { "type": "enum", "name": "Tier", "symbols": ["FREE", "PRO"] } },
+    { "name": "score", "type": ["null", "int"], "default": null },
+    {
+      "name": "address",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Address",
+          "fields": [
+            { "name": "city", "type": "string" },
+            { "name": "zip", "type": ["null", "string"], "default": null }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

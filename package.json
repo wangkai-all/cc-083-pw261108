@@ -1,0 +1,14 @@
+{
+  "name": "data-contract-registry",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "数据契约登记页：JSON Schema / Avro 版本管理与兼容性评估",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

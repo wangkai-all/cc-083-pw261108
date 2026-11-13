@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "UserEvent",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "id", "type": "long" },
+    { "name": "fullName", "type": "string", "aliases": ["name"] },
+    { "name": "tier", "type": { "type": "enum", "name": "Tier", "symbols": ["FREE", "PRO", "ENTERPRISE"] } },
+    { "name": "score", "type": ["null", "long"], "default": null },
+    {
+      "name": "address",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Address",
+          "fields": [
+            { "name": "city", "type": "string" },
+            { "name": "zip", "type": ["null", "string"], "default": null },
+            { "name": "geo", "type": "string", "default": "unknown" }
+          ]
+        }
+      ],
+      "default": null
+    },
+    { "name": "email", "type": "string", "default": "n/a" }
+  ]
+}
